@@ -1,78 +1,30 @@
 name = "hex-lll-mathlib"
 defaultTargets = ["HexLLLMathlib"]
 
-# The full transitive Hex closure is pinned explicitly. Lake does not reconcile
-# mismatched revisions of a package required at more than one point in the
-# graph, so every Hex pin here must move together with its source repo.
 leanOptions = [
   { name = "doc.verso", value = true },
   { name = "doc.verso.suggestions", value = false },
 ]
 
 [[require]]
-name = "HexBasic"
-git = "https://github.com/leanprover/hex-basic.git"
-rev = "v0.6.0"
-
-[[require]]
-name = "HexLLL"
-git = "https://github.com/leanprover/hex-lll.git"
-rev = "v0.6.0"
+name = "HexRowReduceMathlib"
+git = "https://github.com/leanprover/hex-row-reduce-mathlib.git"
+rev = "v0.7.0"
 
 [[require]]
 name = "HexGramSchmidtMathlib"
 git = "https://github.com/leanprover/hex-gram-schmidt-mathlib.git"
-rev = "v0.6.0"
+rev = "v0.7.0"
 
 [[require]]
-name = "HexRowReduceMathlib"
-git = "https://github.com/leanprover/hex-row-reduce-mathlib.git"
-rev = "v0.6.0"
-
-[[require]]
-name = "HexDeterminantMathlib"
-git = "https://github.com/leanprover/hex-determinant-mathlib.git"
-rev = "v0.6.0"
-
-[[require]]
-name = "HexBareissMathlib"
-git = "https://github.com/leanprover/hex-bareiss-mathlib.git"
-rev = "v0.6.0"
-
-[[require]]
-name = "HexMatrixMathlib"
-git = "https://github.com/leanprover/hex-matrix-mathlib.git"
-rev = "v0.6.0"
-
-[[require]]
-name = "HexGramSchmidt"
-git = "https://github.com/leanprover/hex-gram-schmidt.git"
-rev = "v0.6.0"
-
-[[require]]
-name = "HexRowReduce"
-git = "https://github.com/leanprover/hex-row-reduce.git"
-rev = "v0.6.0"
-
-[[require]]
-name = "HexDeterminant"
-git = "https://github.com/leanprover/hex-determinant.git"
-rev = "v0.6.0"
-
-[[require]]
-name = "HexBareiss"
-git = "https://github.com/leanprover/hex-bareiss.git"
-rev = "v0.6.0"
-
-[[require]]
-name = "HexMatrix"
-git = "https://github.com/leanprover/hex-matrix.git"
-rev = "v0.6.0"
+name = "HexLLL"
+git = "https://github.com/leanprover/hex-lll.git"
+rev = "v0.7.0"
 
 [[require]]
 name = "mathlib"
 git = "https://github.com/leanprover-community/mathlib4.git"
-rev = "v4.34.0-rc2"
+rev = "d870b9068518a0870842d15a0cd42637ec30b587"
 
 [[lean_lib]]
 name = "HexLLLMathlib"
