@@ -9,17 +9,17 @@ leanOptions = [
 [[require]]
 name = "HexRowReduceMathlib"
 git = "https://github.com/leanprover/hex-row-reduce-mathlib.git"
-rev = "v0.8.0"
+rev = "v0.9.0"
 
 [[require]]
 name = "HexGramSchmidtMathlib"
 git = "https://github.com/leanprover/hex-gram-schmidt-mathlib.git"
-rev = "v0.8.0"
+rev = "v0.9.0"
 
 [[require]]
 name = "HexLLL"
 git = "https://github.com/leanprover/hex-lll.git"
-rev = "v0.8.0"
+rev = "v0.9.0"
 
 [[require]]
 name = "mathlib"
