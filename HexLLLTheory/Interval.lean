@@ -7,7 +7,7 @@ Authors: Kim Morrison
 module
 
 public import HexLLL
-public import HexGramSchmidtMathlib.Int
+public import HexGramSchmidtTheory.Int
 
 public section
 
@@ -38,7 +38,7 @@ The proof has three layers:
   identity `gramDet_eq_prod_normSq_uncond`.
 -/
 
-namespace HexLLLMathlib
+namespace HexLLLTheory
 
 open Hex Hex.Internal
 
@@ -979,4 +979,4 @@ theorem lllReducedInterval_sound (b : Hex.Matrix Int n m) (δ η : Rat) :
     have := (mul_le_mul_iff_of_pos_right hSQ).mp hchain
     exact this
 
-end HexLLLMathlib
+end HexLLLTheory

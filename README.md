@@ -1,14 +1,14 @@
-# hex-lll-mathlib
+# hex-lll-theory
 
 Part of [`hex`](https://github.com/kim-em/hex-dev), a computer algebra library
 for Lean 4. The aim is fast executable code, fully verified, built with
 spec-driven development.
 
-`hex-lll-mathlib` relates the executable integer lattice operations from
+`hex-lll-theory` relates the executable integer lattice operations from
 [`hex-lll`](https://github.com/leanprover/hex-lll) to Mathlib submodules and
 Euclidean norms, building on
-[`hex-gram-schmidt-mathlib`](https://github.com/leanprover/hex-gram-schmidt-mathlib)
-and [`hex-row-reduce-mathlib`](https://github.com/leanprover/hex-row-reduce-mathlib),
+[`hex-gram-schmidt-theory`](https://github.com/leanprover/hex-gram-schmidt-theory)
+and [`hex-row-reduce-theory`](https://github.com/leanprover/hex-row-reduce-theory),
 and on Mathlib.
 Its principal theorem says that the first row returned by `Hex.lll` is short
 relative to every nonzero vector of the input lattice.
@@ -19,15 +19,15 @@ Add to your `lakefile.toml`:
 
 ```toml
 [[require]]
-name = "hex-lll-mathlib"
-git = "https://github.com/leanprover/hex-lll-mathlib.git"
+name = "hex-lll-theory"
+git = "https://github.com/leanprover/hex-lll-theory.git"
 rev = "main"
 ```
 
 ```lean
-import HexLLLMathlib
+import HexLLLTheory
 
-open HexLLLMathlib
+open HexLLLTheory
 
 #check @lll_first_row_norm_sq_le
 #check @lllNative_first_row_norm_sq_le
@@ -62,7 +62,7 @@ theorem for `lllNative` uses the tighter classical denominator `δ - 1/4`.
 The lattice-preservation theorems state that both returned bases generate
 exactly the input submodule.
 
-See the [SPEC](SPEC/hex-lll-mathlib.md) for the theorem map and precise
+See the [SPEC](SPEC/hex-lll-theory.md) for the theorem map and precise
 hypotheses.
 
 # Contributing

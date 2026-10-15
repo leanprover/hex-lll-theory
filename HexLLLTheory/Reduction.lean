@@ -6,7 +6,7 @@ Authors: Kim Morrison
 
 module
 
-public import HexLLLMathlib.ReductionInvariant
+public import HexLLLTheory.ReductionInvariant
 
 public section
 
@@ -43,7 +43,7 @@ theorem lllNative_isLLLReduced (b : Matrix Int n m) (δ : Rat)
   set s := LLLState.ofBasis b with hs_def
   have hs_valid : s.Valid := by
     show (LLLState.ofBasis b).Valid
-    exact HexLLLMathlib.LLLState.ofBasis_valid b
+    exact HexLLLTheory.LLLState.ofBasis_valid b
   have hs_ind : s.b.independent := hind
   have hs_pre : prefixLLLReduced s.b 1 δ := prefixLLLReduced_one s.b δ
   apply LLLState.lllLoop_isLLLReduced_of_fuel_gt_measure δ hδ hδ' (lllFuel s) s 1
@@ -67,7 +67,7 @@ theorem lllNative_independent (b : Matrix Int n m) (δ : Rat)
     (hδ : 1/4 < δ) (hδ' : δ ≤ 1) (hn : 1 ≤ n) (hind : b.independent) :
     (lllNative b δ hδ hδ' hn).independent := by
   have hs_valid : (LLLState.ofBasis b).Valid :=
-    HexLLLMathlib.LLLState.ofBasis_valid b
+    HexLLLTheory.LLLState.ofBasis_valid b
   show (lllLoop (LLLState.ofBasis b) 1 δ hδ hδ'
     (Nat.le_refl 1) hn (lllFuel (LLLState.ofBasis b))).independent
   exact LLLState.lllLoop_independent δ hδ hδ' _ _ 1
@@ -100,14 +100,14 @@ theorem lllNative_short_vector
 /-- Property triple for an accepted external reduction: a `B'` returned by
 `ExternalReducer.certifiedReduction b δ` generates the same lattice as `b`, is independent,
 and is `(δ, 11/20)`-LLL-reduced. Composes `certifiedReduction_some_certCheck` with
-`HexLLLMathlib.certCheck_sound`, the single trusted property-level correspondence of
+`HexLLLTheory.certCheck_sound`, the single trusted property-level correspondence of
 `hex-lll` §"Certified external selection". -/
 theorem certifiedReduction_some_property {b : Matrix Int n m} {δ : Rat}
     {B' : Matrix Int n m} (h : ExternalReducer.certifiedReduction b δ = some B') :
     (∀ v, b.memLattice v ↔ B'.memLattice v) ∧
       B'.independent ∧ isLLLReduced B' δ (11 / 20) := by
   obtain ⟨U, V, hcheck⟩ := ExternalReducer.certifiedReduction_some_certCheck h
-  exact HexLLLMathlib.certCheck_sound hcheck
+  exact HexLLLTheory.certCheck_sound hcheck
 
 /-- The public LLL `lll` produces a `(δ, 11/20)`-LLL-reduced matrix. On the
 native path this is `lllNative_isLLLReduced` (`η = 1/2`) lifted to `η = 11/20`

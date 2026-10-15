@@ -1,4 +1,4 @@
-# hex-lll-mathlib (depends on hex-lll + Mathlib)
+# hex-lll-theory (depends on hex-lll + Mathlib)
 
 The executable reducedness and certificate checkers whose soundness is proved
 here are owned by `HexLLL`.

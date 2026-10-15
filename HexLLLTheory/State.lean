@@ -7,8 +7,8 @@ Authors: Kim Morrison
 module
 
 public import HexLLL
-public import HexGramSchmidtMathlib.Int
-public import HexRowReduceMathlib.RankSpanNullspace
+public import HexGramSchmidtTheory.Int
+public import HexRowReduceTheory.RankSpanNullspace
 public import Mathlib.Analysis.InnerProductSpace.GramSchmidtOrtho
 
 public section
@@ -20,7 +20,7 @@ interpretation: `ofBasis_valid`, the scaled-coefficient identification
 `isLLLReduced` Lovász clause.
 -/
 
-namespace HexLLLMathlib
+namespace HexLLLTheory
 
 /-- The canonical `LLLState` constructor packages the executable Gram-Schmidt
 data. Lives on the Mathlib side because the diagonal Gram-determinant
@@ -264,4 +264,4 @@ theorem lovasz_check_iff_isLLLReduced_pair
       exact mul_nonneg (le_of_lt hP_pos) hdiff_nn
     linarith
 
-end HexLLLMathlib
+end HexLLLTheory

@@ -6,10 +6,10 @@ Authors: Kim Morrison
 
 module
 
-public import HexLLLMathlib.Interval
+public import HexLLLTheory.Interval
 public import HexLLL
-public import HexGramSchmidtMathlib.Int
-public import HexRowReduceMathlib.RankSpanNullspace
+public import HexGramSchmidtTheory.Int
+public import HexRowReduceTheory.RankSpanNullspace
 public import Mathlib.Analysis.InnerProductSpace.GramSchmidtOrtho
 
 public section
@@ -22,7 +22,7 @@ and the same-lattice property. The interval branch consumes
 `lllReducedInterval_sound`.
 -/
 
-namespace HexLLLMathlib
+namespace HexLLLTheory
 
 /-! # Soundness of the integer reducedness checker
 
@@ -411,7 +411,7 @@ theorem lllReduced_sound (b : Hex.Matrix Int n m) (δ η : Rat) :
 
 /-- Soundness of the selected reducedness clause `Hex.lllReducedCheck`:
 whichever side decided; the fixed-precision interval checker
-(`HexLLLMathlib.lllReducedInterval_sound`), the exact integer checker
+(`HexLLLTheory.lllReducedInterval_sound`), the exact integer checker
 chosen by the size predictor, or the exact fallback after interval
 indecision (both via `lllReduced_sound` above); acceptance entails
 the rational `isLLLReduced` predicate and independence. The predictor
@@ -426,7 +426,7 @@ theorem lllReducedCheck_sound (b : Hex.Matrix Int n m) (δ η : Rat) :
   by_cases hwin : Hex.Internal.intervalWins b = true
   · rw [ite_eq_left hwin] at hcheck
     by_cases hint : Hex.lllReducedInterval b δ η = true
-    · exact HexLLLMathlib.lllReducedInterval_sound b δ η hint
+    · exact HexLLLTheory.lllReducedInterval_sound b δ η hint
     · rw [ite_eq_right (by simpa using hint)] at hcheck
       exact lllReduced_sound b δ η hcheck
   · rw [ite_eq_right (by simpa using hwin)] at hcheck
@@ -459,4 +459,4 @@ theorem certCheck_sound {B B' : Hex.Matrix Int n m} {U V : Hex.Matrix Int n n}
   · exact (lllReducedCheck_sound B' δ η hred).2
   · exact (lllReducedCheck_sound B' δ η hred).1
 
-end HexLLLMathlib
+end HexLLLTheory

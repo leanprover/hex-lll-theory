@@ -6,17 +6,17 @@ Authors: Kim Morrison
 
 module
 
-public import HexLLLMathlib.Interval
-public import HexLLLMathlib.State
-public import HexLLLMathlib.IntegerLattice
-public import HexLLLMathlib.Checker
-public import HexLLLMathlib.Reduction
-public import HexLLLMathlib.ShortVector
+public import HexLLLTheory.Interval
+public import HexLLLTheory.State
+public import HexLLLTheory.IntegerLattice
+public import HexLLLTheory.Checker
+public import HexLLLTheory.Reduction
+public import HexLLLTheory.ShortVector
 
 public section
 
 /-!
-The `HexLLLMathlib` library identifies the executable `HexLLL` lattice
+The `HexLLLTheory` library identifies the executable `HexLLL` lattice
 surface with Mathlib's linear-algebra API.
 
 This library exposes a `Submodule ℤ` model of the integer row lattice

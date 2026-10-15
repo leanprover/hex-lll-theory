@@ -6,8 +6,8 @@ Authors: Kim Morrison
 
 module
 
-public import HexLLLMathlib.IntegerLattice
-public import HexLLLMathlib.Reduction
+public import HexLLLTheory.IntegerLattice
+public import HexLLLTheory.Reduction
 public import HexLLL
 
 public section
@@ -22,7 +22,7 @@ the submodule lattice-preservation transfers `lll_mem_latticeSubmodule_iff` and
 `lllNative_mem_latticeSubmodule_iff`.
 -/
 
-namespace HexLLLMathlib
+namespace HexLLLTheory
 
 /-- Membership in the Mathlib `latticeSubmodule` is preserved by
 `Hex.lllNative`. -/
@@ -32,8 +32,8 @@ theorem lllNative_mem_latticeSubmodule_iff
     (hδ : 1/4 < δ) (hδ' : δ ≤ 1) (hn : 1 ≤ n)
     (x : Fin m → ℤ) :
     x ∈ latticeSubmodule (Hex.lllNative b δ hδ hδ' hn) ↔ x ∈ latticeSubmodule b := by
-  let v := HexMatrixMathlib.vectorEquiv.symm x
-  have hxv : x = HexMatrixMathlib.vectorEquiv v :=
+  let v := HexMatrixTheory.vectorEquiv.symm x
+  have hxv : x = HexMatrixTheory.vectorEquiv v :=
     (Equiv.apply_symm_apply _ x).symm
   rw [hxv]
   rw [mem_latticeSubmodule_iff (Hex.lllNative b δ hδ hδ' hn) v,
@@ -47,8 +47,8 @@ theorem lll_mem_latticeSubmodule_iff
     (hδ : (121 / 400 : Rat) < δ) (hδ' : δ ≤ 1) (hn : 1 ≤ n)
     (x : Fin m → ℤ) :
     x ∈ latticeSubmodule (Hex.lll b δ hδ hδ' hn) ↔ x ∈ latticeSubmodule b := by
-  let v := HexMatrixMathlib.vectorEquiv.symm x
-  have hxv : x = HexMatrixMathlib.vectorEquiv v :=
+  let v := HexMatrixTheory.vectorEquiv.symm x
+  have hxv : x = HexMatrixTheory.vectorEquiv v :=
     (Equiv.apply_symm_apply _ x).symm
   rw [hxv]
   rw [mem_latticeSubmodule_iff (Hex.lll b δ hδ hδ' hn) v,
@@ -112,4 +112,4 @@ theorem lll_first_row_norm_sq_le
   have hηη : (11 / 20 : Rat) * (11 / 20) = 121 / 400 := by grind
   simpa [hηη] using hbnd
 
-end HexLLLMathlib
+end HexLLLTheory

@@ -7,10 +7,10 @@ Authors: Kim Morrison
 module
 
 public import HexLLL
-public import HexLLLMathlib.State
-public import HexLLLMathlib.Checker
-public import HexGramSchmidtMathlib.Int
-public import HexGramSchmidtMathlib.Update
+public import HexLLLTheory.State
+public import HexLLLTheory.Checker
+public import HexGramSchmidtTheory.Int
+public import HexGramSchmidtTheory.Update
 
 public section
 
@@ -2196,7 +2196,7 @@ theorem lllLoop_isLLLReduced_of_fuel_gt_measure
           · intro j hj
             exact sizeReduce_size_reduced s k hlt hvalid hind j hj
           · intro _hk0
-            have hiff := HexLLLMathlib.lovasz_check_iff_isLLLReduced_pair
+            have hiff := HexLLLTheory.lovasz_check_iff_isLLLReduced_pair
               (s.sizeReduce k) k hlt hk0 hsR_valid hsR_ind hδ hδ'
             exact hiff.mp hcond
         apply ih (s.sizeReduce k) (k + 1) (Nat.succ_pos k) (Nat.succ_le_of_lt hlt)
